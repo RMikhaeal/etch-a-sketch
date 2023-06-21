@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  border-style: solid;
 }
 
 .col {
@@ -8,6 +9,9 @@
 
 .row {
   margin: 0px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
   aspect-ratio : 1 / 1;
   text-align: center;
   -webkit-user-drag: none;
@@ -15,4 +19,8 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+#slider {
+  accent-color: #000000;
 }
