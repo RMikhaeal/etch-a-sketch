@@ -1,5 +1,21 @@
-var columns = 64;
-var rows = 64;
+//Color picker function
+let colorPicker;
+const defaultColor = "#000000";
+window.addEventListener("load", startup, false);
+
+function startup() {
+  colorPicker = document.querySelector("#colorpicker");
+  colorPicker.value = defaultColor;
+  colorPicker.addEventListener("input", updateFirst, false);
+}
+
+function updateFirst(event) {
+    colorPicker.value = event.target.value;
+}
+
+//Grid size selection
+let columns = 64;
+let rows = 64;
 const container = document.querySelector('.container');
 
 function createGrid(c, r) {
@@ -21,6 +37,6 @@ createGrid(columns, rows);
 function colorDiv(e) {
   if (e.buttons == 1) {
     console.log(this);
-    this.style.backgroundColor = 'red';
+    this.style.backgroundColor = colorPicker.value;
   }
 }
