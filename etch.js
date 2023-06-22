@@ -19,7 +19,7 @@ const clear = document.getElementById("clear");
 
 clear.addEventListener('click', () => {
   var rows = document.querySelectorAll("div.row");
-  rows.forEach(Element => Element.style.background = 'none');
+  rows.forEach(Element => Element.style.backgroundColor = 'white');
 });
 
 //Slider value
@@ -41,6 +41,7 @@ function createGrid(s) {
     for (let j = 0; j < s; ++j) {
       var row = document.createElement('div');
       row.className = 'row';
+      row.style.backgroundColor = 'white';
       row.addEventListener('mousedown', colorDiv);
       row.addEventListener('mouseenter', colorDiv);
       col.appendChild(row);
