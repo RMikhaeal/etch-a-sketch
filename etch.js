@@ -1,5 +1,5 @@
 //Color picker function
-let colorPicker;
+var colorPicker;
 const defaultColor = "#000000";
 window.addEventListener("load", startup, false);
 
@@ -14,6 +14,14 @@ function updateFirst(event) {
   colorPicker.value = event.target.value;
 }
 
+//Clear Grid
+const clear = document.getElementById("clear");
+
+clear.addEventListener('click', () => {
+  var rows = document.querySelectorAll("div.row");
+  rows.forEach(Element => Element.style.background = 'none');
+});
+
 //Slider value
 var slider = document.getElementById("slider");
 var output = document.getElementById("slidervalue");
@@ -23,7 +31,7 @@ slider.oninput = function() {
   output.innerHTML = this.value + " x " + this.value;
 }
 
-//Grid size selection
+//Grid Creation
 const container = document.querySelector('.container');
 
 function createGrid(s) {
@@ -33,16 +41,18 @@ function createGrid(s) {
     for (let j = 0; j < s; ++j) {
       var row = document.createElement('div');
       row.className = 'row';
-      row.addEventListener('mouseover', colorDiv);
+      row.addEventListener('mousedown', colorDiv);
+      row.addEventListener('mouseenter', colorDiv);
       col.appendChild(row);
     }
     container.appendChild(col);
   }
 }
 
-const button = document.getElementById("changegrid");
+//Grid Size Selection
+const change = document.getElementById("changegrid");
 
-button.addEventListener('click', () => {
+change.addEventListener('click', () => {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
@@ -50,8 +60,34 @@ button.addEventListener('click', () => {
 });
 
 function colorDiv(e) {
-  if (e.buttons == 1) {
-    console.log(this);
-    this.style.backgroundColor = colorPicker.value;
+  var color = colorPicker.value
+
+  if(rainbow.value == "ON") {
+    color = getColor();
   }
+
+  if(e.buttons == 1) {
+    this.style.backgroundColor = color;
+  }
+}
+
+//Rainbow
+const rainbow = document.getElementById("rainbow");
+
+rainbow.addEventListener('click', () => {
+  if(rainbow.value == "OFF") {
+    rainbow.value = "ON";
+  }
+  else {
+    rainbow.value = "OFF";
+  }
+});
+
+function getColor() {
+  const letters = '0123456789ABCDEF';
+  var randcolor = '#';
+  for (var i = 0; i < 6; i++) {
+    randcolor += letters[Math.floor(Math.random() * 16)];
+  }
+  return randcolor;
 }
