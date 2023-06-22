@@ -1,6 +1,40 @@
+body {
+  background-color: rgb(221, 221, 221);
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  padding: 0 5%;
+}
+
 .container {
   display: flex;
-  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 30%;
+}
+
+.settings {
+  width: 10%;
+  background-color: rgb(133, 133, 133);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.settings > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  gap: 10px;
+  font-size: x-large;
+}
+
+.color {
+  align-items: center;
 }
 
 .col {
@@ -9,9 +43,6 @@
 
 .row {
   margin: 0px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
   aspect-ratio : 1 / 1;
   text-align: center;
   -webkit-user-drag: none;
@@ -23,4 +54,28 @@
 
 #slider {
   accent-color: #000000;
+}
+
+input[type="color"] {
+	border: none;
+	width: 70%;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+button {
+  font-size: large;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px;
+  padding: 8px;
+}
+
+button[value="ON"] {
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+}
+
+h1 {
+  font-size: 100px;
+  text-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
